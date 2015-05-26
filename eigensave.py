@@ -111,16 +111,12 @@ if __name__ == "__main__":
       |-Carly
       ...
     """
-    if len(sys.argv) < 1:
-        print "USAGE: eigensave.py </path/to/images>"
-        sys.exit()
     # Now read in the image data. This must be a valid path!
-    [X,y] = read_images(sys.argv[1], (256,256))
+    [X,y] = read_images('/opt/development/workspace/pydev/crowdface/fotos', (256,256))
     # Convert labels to 32bit integers. This is a workaround for 64bit machines,
     y = np.asarray(y, dtype=np.int32)
-
     # Create the Eigenfaces model.
-    model = cv2.createEigenFaceRecognizer()
+    model = cv2.createEigenFaceRecognizer();
     # Learn the model. Remember our function returns Python lists,
     # so we use np.asarray to turn them into NumPy lists to make
     # the OpenCV wrapper happy:
